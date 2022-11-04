@@ -1,0 +1,15 @@
+name: 'Temporary branch subdomain deploy'
+description: 'Temporary branch subdomain deploy'
+inputs:
+  deployment_file: 
+    description: 'Link to the deployment file in github'
+    required: true
+  github_token:
+    description: 'Github token'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.deployment_file }}
+    - ${{ inputs.github_token }}
